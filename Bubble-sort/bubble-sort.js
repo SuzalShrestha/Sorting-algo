@@ -1,7 +1,7 @@
 function bubbleSort(arr) {
   // Iterate through the array
   let swap = 0;
-  for (let i = 0; i < arr.length - 2; i++) {
+  for (let i = 0; i < arr.length - 1; i++) {
     let current = arr[i];
     let next = arr[i + 1];
     // If the current value is greater than its neighbor to the right
