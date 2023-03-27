@@ -18,9 +18,39 @@ function insertionSort(arr) {
   Return the sorted array
   */
 
-  // Your code here
-}
+  let sorted=[];
+  let array=arr;
+  while(array.length!==0){
+    let last=array.pop();
+    if(sorted.length===0){
+      sorted.push(last);
+    }else{
+      for(let j=sorted.length-1;j>=0;j--){
 
+        if(sorted.length===1){
+          if(sorted[0]<last){
+            sorted[1]=last;
+          }else{
+            let temp=sorted[0];
+            sorted[0]=last;
+            sorted[1]=temp;
+          }
+          break;
+        }
+          if(sorted[j]<=last){
+            sorted.splice(j+1,0,last);
+            break;
+           }
+          //else{
+          //   sorted.splice(j+1,0,last);
+          //   break;
+          // }
+      }
+    }
+  }
+return sorted;
+}
+console.log(insertionSort([0,100,0,2,10,1000]));
 // In-place Insertion Sort
 // Mutates the original array
 function insertionSortInPlace(arr) {
