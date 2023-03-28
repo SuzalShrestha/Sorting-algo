@@ -31,7 +31,7 @@ function insertionSort(arr) {
         index = 0;
         break;
       }
-      if (sorted[i - 1] < last || sorted[i - 1] === undefined) {
+      if (sorted[i - 1] <= last || sorted[i - 1] === undefined) {
         index = i;
         break;
       } else {
@@ -63,6 +63,22 @@ function insertionSortInPlace(arr) {
   Return the mutated array
   */
   // Your code here
+  let pointer = 1;
+  let index;
+  while (arr.slice(pointer, arr.length).length !== 0) {
+    console.log(arr.join(","));
+    let current = arr[pointer];
+    for (let i = pointer; i >= 0; i--) {
+      if (arr[i - 1] <= current || arr[i - 1] === undefined) {
+        index = i;
+        break;
+      } else {
+        if (arr[i - 1]) arr[i] = arr[i - 1];
+      }
+    }
+    arr[index] = current;
+    pointer++;
+  }
+  return arr;
 }
-
 module.exports = [insertionSort, insertionSortInPlace];
